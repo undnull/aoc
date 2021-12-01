@@ -24,8 +24,6 @@ int main(void)
             if(ws2 > ws1)
                 ns++;
             printf("WS1: %04d, WS2: %04d\n", ws1, ws2);
-            printf("\tWS1: [%04d %04d %04d]\n", history[2], history[1], history[0]);
-            printf("\tWS2: [%04d %04d %04d]\n", history[1], history[0], cv);
         }
 
         /* H0,H1 -> H1,H2 */
