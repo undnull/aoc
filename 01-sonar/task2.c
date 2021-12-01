@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 int main(void)
 {
@@ -30,7 +29,7 @@ int main(void)
         history[0] = cv;
     }
 
-    printf("ns: %d\n", ns);
+    printf("NS: %d\n", ns);
 
     fclose(fp);
 
