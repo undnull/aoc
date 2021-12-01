@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define WINDOW_SIZE 3
-
 int main(void)
 {
     FILE *fp;
