@@ -4,21 +4,6 @@
 
 #define INPUT_BITS 12
 
-/* Okay so this part was pretty fucked up
- * for me because I wanted to preserve some
- * memory and not allocate a separate array
- * but it seems like it was the only way.
- * I was solving this for like 4 hours straight
- * probably just because I am stubborn like a fucking ram.
- * But here it is, working and consuming much more
- * memory than previous days and tasks were.
- * I hope shit doesn't hit the fan like this tomorrow.
- *
- * Not just I don't like AoC tasks at all but personally
- * speaking as an ANSI C lover I with my full responsibility
- * absolutely fucking despise this day's part 2 and everything
- * even closely connected to solving it. */
-
 int main(void)
 {
     FILE *fp;
