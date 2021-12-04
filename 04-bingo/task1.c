@@ -2,9 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define TABLE_SIZE 5
+
 struct table {
-    unsigned int values[5][5];
-    int status[5][5];
+    unsigned int values[TABLE_SIZE][TABLE_SIZE];
+    int status[TABLE_SIZE][TABLE_SIZE];
 };
 
 static int read_table(FILE *fp, struct table *t)
@@ -16,7 +18,7 @@ static int read_table(FILE *fp, struct table *t)
     /* skip the empty line */
     fgets(line, sizeof(line), fp);
 
-    for(i = 0; i < 5; i++) {
+    for(i = 0; i < TABLE_SIZE; i++) {
         if(!fgets(line, sizeof(line), fp))
             return 0;
         p = t->values[i];
@@ -31,8 +33,8 @@ static unsigned int draw_number(unsigned int n, struct table *t)
 {
     unsigned int i, j, bingo;
 
-    for(i = 0; i < 5; i++) {
-        for(j = 0; j < 5; j++) {
+    for(i = 0; i < TABLE_SIZE; i++) {
+        for(j = 0; j < TABLE_SIZE; j++) {
             if(t->values[i][j] != n)
                 continue;
             t->status[i][j] = 1;
@@ -40,9 +42,9 @@ static unsigned int draw_number(unsigned int n, struct table *t)
     }
 
     /* go vertically */
-    for(i = 0; i < 5; i++) {
+    for(i = 0; i < TABLE_SIZE; i++) {
         bingo = 1;
-        for(j = 0; j < 5; j++)
+        for(j = 0; j < TABLE_SIZE; j++)
             bingo = bingo && t->status[i][j];
         if(!bingo)
             continue;
@@ -50,9 +52,9 @@ static unsigned int draw_number(unsigned int n, struct table *t)
     }
 
     /* go horizontally */
-    for(j = 0; j < 5; j++) {
+    for(j = 0; j < TABLE_SIZE; j++) {
         bingo = 1;
-        for(i = 0; i < 5; i++)
+        for(i = 0; i < TABLE_SIZE; i++)
             bingo = bingo && t->status[i][j];
         if(!bingo)
             continue;
@@ -62,8 +64,8 @@ static unsigned int draw_number(unsigned int n, struct table *t)
     return 0;
 
 table_won:
-    for(i = bingo = 0; i < 5; i++) {
-        for(j = 0; j < 5; j++) {
+    for(i = bingo = 0; i < TABLE_SIZE; i++) {
+        for(j = 0; j < TABLE_SIZE; j++) {
             if(t->status[i][j])
                 continue;
             bingo += t->values[i][j];

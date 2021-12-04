@@ -1,8 +1,0 @@
-{
-    "files.associations": {
-        "*.cfgS": "properties",
-        "*.S": "gas",
-        "stdlib.h": "c",
-        "stdio.h": "c"
-    }
-}
